@@ -1,6 +1,5 @@
 (ns examples.function-composition)
 
-(defn compose [foo bar]
-  (fn [x & more]
-    (foo (reduce bar (bar x) more)))
-)
+(defn compose [f g]
+  (fn [& more]
+    (f (apply g more))))
